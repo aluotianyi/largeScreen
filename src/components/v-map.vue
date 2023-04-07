@@ -30,14 +30,14 @@
   myChart.centerAndZoom(point, 6); 
   myChart.enableScrollWheelZoom(true)
   myChart.setMapType(BMAP_SATELLITE_MAP);
-  let dist = new BMapGL.DistrictLayer({
-      name: '(  广东省  )',
-      kind: 1,
-      fillColor: '#618bf8',
-      strokeColor: '#daeafa',
-      viewport: true
-  });
-  myChart.addDistrictLayer(dist);
+  // let dist = new BMapGL.DistrictLayer({
+  //     name: '(  广东省  )',
+  //     kind: 1,
+  //     fillColor: '#618bf8',
+  //     strokeColor: '#daeafa',
+  //     viewport: true
+  // });
+  // myChart.addDistrictLayer(dist);
  }
  
  </script>

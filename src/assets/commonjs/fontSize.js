@@ -1,9 +1,10 @@
+import * as global from '@/assets/commonjs/global.js'
 (()=>{
     let lock=void 0;
     function bodySizeSet(){
       if(!lock){
        lock=window.setTimeout(()=>{
-          const baseWidth=1920
+          const baseWidth=global.screenData.width
           const baseSize=100
           const screenWidth=window.innerWidth
           const devicePixelRatio=window.devicePixelRatio||1

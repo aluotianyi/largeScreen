@@ -15,7 +15,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref ,onMounted,reactive,onUnmounted} from 'vue';
+import { ref ,onMounted,reactive,onUnmounted,getCurrentInstance } from 'vue';
 const infoBox= ref(null)
 const animateBox=ref(null)
 const infoList= reactive([
@@ -38,19 +38,24 @@ const infoList= reactive([
   '拿破仑接近枫丹白露',
   '皇帝陛下将于今日抵达他忠实的巴黎',
 ])
+// 获取基础屏幕宽高
+const screenData= getCurrentInstance()?.appContext.config.globalProperties.$screenData
+// 取得缩放比
 // 声明动画方法，并为cancelAnimationFrame预留变量
 let animate= ref(0)
+// 通过requestAnimationFrame递归执行滚动动画，逻辑为检测信息数*单条信息高度是否大于父盒子总高+单条信息高度，
 let scroll=()=>{
+  const baseScale =window.innerWidth*(window.devicePixelRatio||1)/screenData.width
   if(animate.value){
     window.cancelAnimationFrame(animate.value)
     animate.value=0
   }
   let fatherHeight=infoBox.value.getBoundingClientRect().height
-  let BaseSpeed=window.innerWidth/1920*40
+  let BaseSpeed=baseScale*40
   let childrenHeight=BaseSpeed*infoList.length
   let base=0
   let render=()=>{
-    base+=0.2
+    base+=(0.2*baseScale)
     if(base<BaseSpeed){
       animateBox.value.style.marginTop=-base+'px'
       animate.value=window.requestAnimationFrame(render)
@@ -62,9 +67,7 @@ let scroll=()=>{
       animate.value=window.requestAnimationFrame(render)
     }
   }
-  console.log('初始触发',BaseSpeed,fatherHeight,childrenHeight)
   if(childrenHeight-fatherHeight>BaseSpeed){
-    console.log('初始触发')
     animate.value = window.requestAnimationFrame(render)
   }
 }

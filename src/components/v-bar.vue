@@ -34,9 +34,9 @@
         }
       },
       legend: {
-        padding:20,
-        left:25,
-        rigth:25,
+        padding:20*props.baseScale.width,
+        left:25*props.baseScale.width,
+        rigth:25*props.baseScale.width,
         type: 'scroll',
         textStyle: {
           color: "white"

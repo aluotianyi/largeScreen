@@ -4,7 +4,7 @@
   </div>
  </template>
  <script setup lang="ts">
- import {ref,nextTick,watch} from "vue"
+ import {ref,nextTick,watch,getCurrentInstance } from "vue"
  import * as echarts from 'echarts';
  const props=defineProps({
    baseScale:{
