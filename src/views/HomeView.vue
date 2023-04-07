@@ -28,13 +28,15 @@ import centerComponent from '@/views/centerComponent.vue'
 }
 .box :deep(.mark-title){
   border-left: 0.03rem solid rgb(221, 165, 11);
-  border-bottom: 0.01rem solid rgba(255,255,255,0.4);
+  border-bottom: 0.01rem solid rgb(221, 165, 11);
   height: 0.25rem;
   line-height: 0.25rem;
   font-size: 0.16rem;
   padding-left: 0.1rem;
   color:white;
   box-sizing: border-box;
+  border-radius: 0.05rem 0.05rem 0  0; 
+  overflow: hidden;
 }
 .box :deep(.bg){
   background: rgba(255,255,255,0.1)

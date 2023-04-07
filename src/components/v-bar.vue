@@ -48,18 +48,35 @@
       grid: {
         left: '3%',
         right: '4%',
-        bottom: '3%',
+        bottom: '6%',
         containLabel: true
       },
       xAxis: [
         {
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          axisLine: {
+            lineStyle: {
+              color: "white"
+            }
+          },
         }
       ],
       yAxis: [
         {
-          type: 'value'
+          type: 'value',
+          axisLine: {
+            lineStyle: {
+              color: "white"
+            }
+          },
+          splitLine:{ //修改背景线条样式
+            show:true,//是否展示 
+            lineStyle:{ 
+              color:"rgb(221, 165, 11)",//线条颜色
+              type:"dashed"//线条样式，默认是实现，dashed是虚线
+            },
+          },
         }
       ],
       series: [

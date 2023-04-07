@@ -46,8 +46,8 @@ let scroll=()=>{
     animate.value=0
   }
   let fatherHeight=infoBox.value.getBoundingClientRect().height
-  let childrenHeight=animateBox.value.getBoundingClientRect().height
   let BaseSpeed=window.innerWidth/1920*40
+  let childrenHeight=BaseSpeed*infoList.length
   let base=0
   let render=()=>{
     base+=0.2
@@ -62,8 +62,9 @@ let scroll=()=>{
       animate.value=window.requestAnimationFrame(render)
     }
   }
+  console.log('初始触发',BaseSpeed,fatherHeight,childrenHeight)
   if(childrenHeight-fatherHeight>BaseSpeed){
-    console.log(animate,22333)
+    console.log('初始触发')
     animate.value = window.requestAnimationFrame(render)
   }
 }
@@ -104,7 +105,7 @@ onUnmounted(()=>{
  width: calc(100% - 0.4rem);
  margin-left: 0.2rem;
  padding: 0 0.2rem;
- border-bottom: 0.01rem dashed rgba(255,255,255);
+ border-bottom: 0.01rem dashed rgb(221, 165, 11);
  color: white;
  height: 0.4rem;
  line-height: 0.4rem;
